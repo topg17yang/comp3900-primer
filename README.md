@@ -225,8 +225,9 @@ docker compose up --build
 At any time after Part 2, you can run the public tests:
 
 
+```bash
 docker compose --profile debug up --build automark --remove-orphans
-
+```
 
 You must see **`SANITY CHECK PASSED`**. These tests check: backend health, database connectivity, list of students, `/stats` response shape, and that creating a student persists.
 
