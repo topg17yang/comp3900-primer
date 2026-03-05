@@ -5,7 +5,6 @@ services:
       POSTGRES_USER: marksuser
       POSTGRES_PASSWORD: markspass
       POSTGRES_DB: marksdb
-<<<<<<< HEAD
 
     # Pre-seed script is required as a volume to load mock database
     # Data inside the container is lost on restart unless you persist it with a volume.
@@ -38,20 +37,6 @@ services:
     depends_on:
       - backend
 
-
-=======
-    # Pre-seed script is required as a volume to load mock database
-    # Data inside the container is lost on restart unless you persist it with a volume.
-    ports:
-      - "5432:5432"
-
-  backend:
-    # TODO: you will need to add to this
-
-  frontend:
-    # TODO: you will need to add to this
->>>>>>> origin/eric/stats-feature
-
   automark:
     build: ./automark
     depends_on:
@@ -59,9 +44,6 @@ services:
       - db
     profiles:
       - debug
-<<<<<<< HEAD
 
 volumes:
   my-db-volume:
-=======
->>>>>>> origin/eric/stats-feature

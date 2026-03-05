@@ -52,9 +52,6 @@ def create_student():
 
 
 
-
-
-
 @app.route("/students/<int:student_id>", methods=["PUT"])
 def update_student(student_id):
     """
@@ -113,14 +110,14 @@ def get_stats():
 
     if len(marks) == 0:
         stats = {
-            "count": len(all_stud),
+            "count": len(marks),
             "average": None,
             "min": None,
             "max": None
         } 
     else:
         stats = {
-            "count": len(all_stud),
+            "count": len(marks),
             "average": sum(marks) / len(marks),
             "min": min(marks),
             "max": max(marks)
