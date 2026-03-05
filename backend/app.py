@@ -38,8 +38,21 @@ def create_student():
     course = student_data.get("course")
     mark = student_data.get("mark")
 
+
+    #edge case 1:
+    # have to check if the name / course is None or not
+    if name is None or course is None:
+        return jsonify({"error": "name and course is needed"}), 400
+
+
     return jsonify(db.insert_student(name, course, mark)), 200
     # pass
+
+
+
+
+
+
 
 
 @app.route("/students/<int:student_id>", methods=["PUT"])
@@ -92,7 +105,30 @@ def get_stats():
     all_stud = db.get_all_students()
 
     
-    pass  # replace with your implementation
+    marks = [s["mark"] for s in all_stud if s["mark"] is not None]
+
+    # edge case 2:
+    # if all students mark is None, it will cause a zero division error, as 
+    # when getting the average, 0 / 0. 
+
+    if len(marks) == 0:
+        stats = {
+            "count": len(all_stud),
+            "average": None,
+            "min": None,
+            "max": None
+        } 
+    else:
+        stats = {
+            "count": len(all_stud),
+            "average": sum(marks) / len(marks),
+            "min": min(marks),
+            "max": max(marks)
+        } 
+
+
+    return jsonify(stats), 200
+    # pass  # replace with your implementation
 
 
 
