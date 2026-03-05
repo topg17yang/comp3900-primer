@@ -36,7 +36,7 @@ def create_student():
     student_data = request.json
     name = student_data.get("name")
     course = student_data.get("course")
-    mark = student_data.get("mark")
+    mark = student_data.get("mark", None)
 
 
     #edge case 1:

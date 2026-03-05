@@ -27,8 +27,11 @@ services:
       DB_USER: marksuser
       DB_PASSWORD: markspass
       DB_NAME: marksdb
-        
+    ports:
+      - "5000:5000"
 
+
+      
   frontend:
     # TODO: you will need to add to this
     build: ./frontend
@@ -36,6 +39,8 @@ services:
       - 8080:80
     depends_on:
       - backend
+
+
 
   automark:
     build: ./automark
