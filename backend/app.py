@@ -104,13 +104,9 @@ def get_stats():
     
     marks = [s["mark"] for s in all_stud if s["mark"] is not None]
 
-    # edge case 2:
-    # if all students mark is None, it will cause a zero division error, as 
-    # when getting the average, 0 / 0. 
-
     if len(marks) == 0:
         stats = {
-            "count": len(marks),
+            "count": len(all_stud),
             "average": None,
             "min": None,
             "max": None
