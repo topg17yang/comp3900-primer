@@ -114,7 +114,7 @@ def get_stats():
     else:
         stats = {
             "count": len(marks),
-            "average": sum(marks) / len(marks),
+            "average": round(sum(marks) / len(marks),2),
             "min": min(marks),
             "max": max(marks)
         } 
